@@ -15,11 +15,11 @@
   },
   "dependencies": {
     "framer-motion": "^1.6.14",
-    "gatsby": "^2.15.7",
+    "gatsby": "^2.17.17",
     "gatsby-image": "^2.2.18",
     "gatsby-plugin-google-analytics": "^2.1.23",
     "gatsby-plugin-netlify": "^2.1.12",
-    "gatsby-plugin-netlify-cms": "^4.1.14",
+    "gatsby-plugin-netlify-cms": "^4.1.30",
     "gatsby-plugin-polyfill-io": "^1.1.0",
     "gatsby-plugin-react-helmet": "^3.1.13",
     "gatsby-plugin-sass": "^2.1.20",
@@ -34,8 +34,8 @@
     "node-sass": "^4.12.0",
     "postcss-custom-properties": "^9.0.2",
     "prop-types": "^15.7.2",
-    "react": "^16.9.0",
-    "react-dom": "^16.9.0",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
     "react-helmet": "^6.0.0-beta",
     "react-markdown": "^4.2.2"
   },
@@ -46,6 +46,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-react": "^7.16.0",
     "eslint-plugin-react-hooks": "^1.7.0",
+    "gatsby-plugin-webpack-bundle-analyser-v2": "^1.1.8",
     "prettier": "^1.18.2"
   },
   "repository": {
