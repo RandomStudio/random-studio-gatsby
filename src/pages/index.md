@@ -50,7 +50,7 @@ projects:
       marginLeft: 65
       marginTop: -30
       ratio: 0
-      width: 35
+      width: ''
   - caption: 'Travel exhibition ‘Volez, Voguez, Voyagez’ for Louis Vuitton'
     project: 'Travel exhibition ‘Volez, Voguez, Voyagez’ for Louis Vuitton'
     thumbnail:
