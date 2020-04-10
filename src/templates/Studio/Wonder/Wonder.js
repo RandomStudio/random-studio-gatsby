@@ -38,7 +38,7 @@ const Wonder = () => {
 
     const createEngine = () => {
       engine = new Engine(canvasRef.current, true, {
-        preserveDrawingBuffer: true,
+        preserveDrawingBuffer: false,
         stencil: true,
         adaptToDeviceRatio: true,
       });
@@ -103,15 +103,15 @@ const Wonder = () => {
             scene={currentScene}
           />
           <MouseAnimation layout={layout.model} target={world} />
-          <Sun
+          {/* <Sun
             layout={layout.sun}
             onAddSun={setSun}
             scene={currentScene}
             world={world}
-          />
-          {!checkAndroid() && (
+          /> */}
+          {/* {!checkAndroid() && (
             <Shadows scene={currentScene} sun={sun} world={world} />
-          )}
+          )} */}
         </>
       )}
     </>
