@@ -4,7 +4,6 @@ import styles from './Studio.module.scss';
 import Layout from '../../components/Layout/Layout';
 import IntroBlock from './IntroBlock/IntroBlock';
 import ServiceList from './ServiceList/ServiceList';
-import Wonder from './Wonder/Wonder';
 import SEO from '../../components/SEO/SEO';
 import Footer from '../../components/Footer/Footer';
 import Recruitee from './Recruitee/Recruitee';
@@ -136,8 +135,6 @@ const Studio = ({
           skillset={frontmatter.skillset}
           email={indexPage.frontmatter.email}
         />
-
-        <Wonder />
 
         <div className={styles.jobsImpressionBlock}>
           <Recruitee location={location} />

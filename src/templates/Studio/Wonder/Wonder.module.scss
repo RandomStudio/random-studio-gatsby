@@ -1,10 +1,13 @@
 .canvas {
+  position: absolute;
+  top: 0;
+  right: 0;
   height: 500px;
   width: 500px;
   z-index: 0;
   pointer-events: none;
   opacity: 0.01;
-  transition: opacity 4000ms ease-in 500ms;
+  transition: opacity 500ms ease-in 500ms;
   outline: none;
 
   &.is-visible {

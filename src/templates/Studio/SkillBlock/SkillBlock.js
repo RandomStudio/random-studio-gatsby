@@ -2,13 +2,14 @@ import React, { useState, useRef } from 'react';
 import PropTypes from 'prop-types';
 import styles from './SkillBlock.module.scss';
 import SkillList from './SkillList/SkillList';
+import Wonder from '../Wonder/Wonder';
 import { copyStringToClipboard } from '../../../utils/copyClipboard';
 
 const SkillBlock = ({ skillset, email }) => {
   const [isNoticeVisible, setIsNoticeVisible] = useState(false);
   const emailRef = useRef();
 
-  const handleClickEmail = event =>
+  const handleClickEmail = (event) =>
     copyStringToClipboard(event, email, setIsNoticeVisible);
 
   return (
@@ -20,11 +21,14 @@ const SkillBlock = ({ skillset, email }) => {
         <a href={`mailto:${email}`} onClick={handleClickEmail} ref={emailRef}>
           Contact Us
         </a>
+
+        <Wonder />
       </div>
 
       <div
-        className={`${styles.notice} ${isNoticeVisible &&
-          styles.noticeIsVisible}`}
+        className={`${styles.notice} ${
+          isNoticeVisible && styles.noticeIsVisible
+        }`}
       >
         Copied to clipboard
       </div>
