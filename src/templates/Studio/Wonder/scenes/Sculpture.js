@@ -6,12 +6,12 @@ const camera = {
 };
 
 const filename = {
-  path: '/models/sculpture/backup/',
-  file: 'movingRockBackup.gltf',
+  path: '/models/sculpture/',
+  file: 'movingRock.glb',
 };
 
 const hdr = {
-  url: '/models/sculpture/hdr/studio.env',
+  url: '/models/sculpture/studio.env',
 };
 
 const model = {
