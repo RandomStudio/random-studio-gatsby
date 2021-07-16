@@ -4,8 +4,8 @@ import PropTypes from 'prop-types';
 import Layout from '../../components/Layout/Layout';
 import Footer from '../../components/Footer/Footer';
 import ProjectList from './ProjectList/ProjectList';
-import HomeVideo from './HomeVideo/HomeVideo';
 import SEO from '../../components/SEO/SEO';
+import Logo from '../../components/Logo/Logo';
 
 export const pageQuery = graphql`
   {
@@ -37,7 +37,7 @@ export const pageQuery = graphql`
         }
       }
     }
-    markdownRemark(frontmatter: { templateKey: { eq: "Home" } }) {
+    markdownRemark(frontmatter: { templateKey: { eq: "Projects" } }) {
       fields {
         slug
       }
@@ -58,6 +58,7 @@ export const pageQuery = graphql`
         projects {
           caption
           project
+          tags
           thumbnail {
             marginLeft
             marginTop
@@ -79,13 +80,26 @@ export const pageQuery = graphql`
   }
 `;
 
-const Home = ({ data: { allArticles, allMarkdownRemark, markdownRemark } }) => {
+const Projects = ({
+  data: { allArticles, allMarkdownRemark, markdownRemark },
+}) => {
   const edges = allMarkdownRemark.edges || [];
   const fields = markdownRemark ? markdownRemark.fields : {};
   const frontmatter = markdownRemark ? markdownRemark.frontmatter : {};
 
+  const articles = (frontmatter.articles || []).map((relation) => {
+    const article = (allArticles.edges || []).find(
+      (item) => item.node.frontmatter.title === relation.article,
+    );
+
+    return {
+      ...article.node.frontmatter,
+      position: relation.position,
+    };
+  });
+
   const projects = (frontmatter.projects || [])
-    .map(({ caption, project: projectTitle, thumbnail }) => {
+    .map(({ caption, project: projectTitle, thumbnail, tags }) => {
       const project = edges.find(
         ({
           node: {
@@ -102,6 +116,7 @@ const Home = ({ data: { allArticles, allMarkdownRemark, markdownRemark } }) => {
         slug: project.node.fields.slug,
         title: caption || project.node.frontmatter.title,
         thumbnail,
+        tags,
       };
     })
     .filter((project) => project !== null);
@@ -109,18 +124,14 @@ const Home = ({ data: { allArticles, allMarkdownRemark, markdownRemark } }) => {
   return (
     <Layout>
       <SEO pathName={fields.slug} />
-      <HomeVideo
-        collaborationCredits={frontmatter.collaborationCredits}
-        layout={frontmatter.layout}
-        videoUrl={frontmatter.video}
-      />
-      <ProjectList {...frontmatter} projects={projects} />
+      <Logo />
+      <ProjectList {...frontmatter} articles={articles} projects={projects} />
       <Footer {...frontmatter} />
     </Layout>
   );
 };
 
-Home.propTypes = {
+Projects.propTypes = {
   data: PropTypes.shape({
     allMarkdownRemark: PropTypes.shape({
       edges: PropTypes.array,
@@ -132,4 +143,4 @@ Home.propTypes = {
   }).isRequired,
 };
 
-export default Home;
+export default Projects;

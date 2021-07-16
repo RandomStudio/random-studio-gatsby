@@ -16,7 +16,7 @@ collections:
             name: key
             widget: hidden
             default: settings
-          - label: 'Site title§'
+          - label: 'Site title'
             name: title
             widget: string
             default: 'Random Studio'
@@ -98,12 +98,12 @@ collections:
                 required: false
                 default: true
                 widget: boolean
-              - label: "Always Muted"
+              - label: 'Always Muted'
                 name: isAlwaysMuted
                 required: false
                 widget: boolean
                 default: false
-                hint: "Check this if the video has no audio for example."
+                hint: 'Check this if the video has no audio for example.'
           - label: Carousel
             name: carousel
             widget: list
@@ -355,6 +355,14 @@ collections:
           - label: 'Email Address'
             name: email
             widget: text
+      - file: src/pages/projects.md
+        label: 'Projects Page'
+        name: projects
+        fields:
+          - label: 'Template Key'
+            name: templateKey
+            widget: hidden
+            default: projects
       - file: src/pages/studio.md
         label: 'Studio page'
         name: studio

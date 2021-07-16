@@ -2,10 +2,9 @@
 
 .nav {
   @include blendedText(black, normal);
-
-  display: flex;
   position: fixed;
   top: 0;
+  text-align: right;
   padding: 22px;
   width: 100%;
   font-size: 19px;
@@ -23,10 +22,28 @@
   }
 }
 
+.logo {
+  @include blendedText(black, normal);
+  font-family: 'Larish Neue', serif;
+  position: absolute;
+  left: 22px;
+  top: 40px;
+  font-size: var(--font-logo-small);
+  font-weight: normal;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.01em;
+
+  a {
+    display: inline-block;
+    text-decoration: none;
+  }
+}
+
 @media (min-width: 576px) {
   .nav {
     font-size: var(--font-small);
-    padding: 32px;
+    padding: 32px 45px 32px 45px;
 
     a + a {
       margin-left: 38px;
